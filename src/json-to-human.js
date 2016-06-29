@@ -25,6 +25,9 @@ function jsonToHuman (results) {
 
   results.failures.forEach((test) => {
     output += chalk.red(`✗ ${test.fullTitle}\n`)
+    output += chalk.red(`  ${test.err.message}
+      ${test.err.stack}
+    `)
   })
 
   const passedString = chalk.green(`${results.passes.length} passed`)
