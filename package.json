@@ -53,15 +53,15 @@
   "scripts": {
     "ban": "ban",
     "deps": "deps-ok",
-    "format": "standard-format -w src/*.js",
+    "format": "standard-format -w src/*.js test/*.js",
     "issues": "git-issues",
     "license": "license-checker --production --onlyunknown --csv",
-    "lint": "standard --verbose src/*.js",
+    "lint": "standard --verbose src/*.js test/*.js",
     "pretest": "npm run format && npm run lint",
     "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "npm run unit",
-    "unit": "mocha src/*-spec.js"
+    "unit": "NODE_PATH=.. mocha test/*-spec.js"
   },
   "devDependencies": {
     "ban-sensitive-files": "1.8.3",
@@ -73,5 +73,8 @@
     "pre-git": "3.10.0",
     "standard": "7.1.2",
     "standard-format": "2.2.2"
+  },
+  "dependencies": {
+    "chalk": "1.1.3"
   }
 }

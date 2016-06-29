@@ -1,0 +1,80 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 4,
+    "passes": 2,
+    "pending": 1,
+    "failures": 1,
+    "start": "2016-06-29T14:34:46.743Z",
+    "end": "2016-06-29T14:34:47.313Z",
+    "duration": 570
+  },
+  "tests": [
+    {
+      "title": "is a dummy",
+      "fullTitle": "all tests is a dummy",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "is a function",
+      "fullTitle": "all tests add is a function",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "fails",
+      "fullTitle": "all tests add fails",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {
+        "stack": "Error: on purpose\n    at lazyAssLogic (node_modules/lazy-ass/index.js:81:14)\n    at lazyAss (node_modules/lazy-ass/index.js:86:28)\n    at Context.<anonymous> (test/add-spec.js:9:25)",
+        "message": "on purpose"
+      }
+    },
+    {
+      "title": "is skipped",
+      "fullTitle": "all tests add is skipped",
+      "currentRetry": 0,
+      "err": {}
+    }
+  ],
+  "pending": [
+    {
+      "title": "is skipped",
+      "fullTitle": "all tests add is skipped",
+      "currentRetry": 0,
+      "err": {}
+    }
+  ],
+  "failures": [
+    {
+      "title": "fails",
+      "fullTitle": "all tests add fails",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {
+        "stack": "Error: on purpose\n    at lazyAssLogic (node_modules/lazy-ass/index.js:81:14)\n    at lazyAss (node_modules/lazy-ass/index.js:86:28)\n    at Context.<anonymous> (test/add-spec.js:9:25)",
+        "message": "on purpose"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "title": "is a dummy",
+      "fullTitle": "all tests is a dummy",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "is a function",
+      "fullTitle": "all tests add is a function",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    }
+  ]
+}
