@@ -1,7 +1,7 @@
 {
   "name": "json-human-reporter",
+  "version": "0.0.0-semantic-release",
   "description": "Converts JSON from Mocha test reporter to human output",
-  "version": "1.0.0",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": "https://github.com/bahmutov/json-human-reporter/issues",
   "config": {
@@ -65,7 +65,8 @@
     "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "npm run unit",
-    "unit": "NODE_PATH=.. mocha test/*-spec.js"
+    "unit": "NODE_PATH=.. mocha test/*-spec.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "devDependencies": {
     "ban-sensitive-files": "1.8.3",
@@ -76,7 +77,8 @@
     "nsp": "2.5.0",
     "pre-git": "3.10.0",
     "standard": "7.1.2",
-    "standard-format": "2.2.2"
+    "standard-format": "2.2.2",
+    "semantic-release": "^4.3.5"
   },
   "dependencies": {
     "chalk": "1.1.3",
