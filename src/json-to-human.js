@@ -27,6 +27,12 @@ function jsonToHuman (results) {
     output += chalk.red(`✗ ${test.fullTitle}\n`)
   })
 
+  const passedString = chalk.green(`${results.passes.length} passed`)
+  const skippedString = chalk.cyan(`${results.pending.length} skipped`)
+  const failedString = chalk.red(`${results.failures.length} failed`)
+  const totals = `\n${passedString}, ${skippedString}, ${failedString}`
+  output += totals
+
   return output
 }
 
