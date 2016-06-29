@@ -8,6 +8,29 @@
 [![semantic-release][semantic-image] ][semantic-url]
 [![js-standard-style][standard-image]][standard-url]
 
+## Install and use
+
+```
+npm install --save-dev json-human-reporter
+```
+
+Run [Mocha](http://mochajs.org/) with [json reporter](http://mochajs.org/#progress)
+
+```
+mocha --reporter json > results.json
+```
+
+Then transform `results.json` into human readable output
+
+```
+json-human-reporter results.json
+```
+
+## Why?
+
+Because multiple reporters in Mocha seem a little bit too far in the future, see 
+[#2184](https://github.com/mochajs/mocha/pull/2184) and I wanted something now.
+
 ### Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2016
