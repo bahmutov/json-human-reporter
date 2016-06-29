@@ -21,5 +21,12 @@ describe('json-human-reporter', () => {
       la(is.unemptyString(output), 'converted output', output)
       console.log(output)
     })
+
+    it('ignores leading text', () => {
+      const filename = relative('./leading-text.json')
+      const output = jhr(filename)
+      la(is.unemptyString(output), 'converted output', output)
+      console.log(output)
+    })
   })
 })
