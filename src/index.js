@@ -1,6 +1,6 @@
 'use strict'
 
-const toHuman = require('./json-to-human')
+const toHuman = require('../json-to-human')
 const la = require('lazy-ass')
 const is = require('check-more-types')
 const fs = require('fs')
