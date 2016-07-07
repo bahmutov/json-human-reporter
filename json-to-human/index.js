@@ -5,6 +5,18 @@ const is = require('check-more-types')
 const chalk = require('chalk')
 const checkMark = chalk.green('✓')
 
+function combineResults () {
+  const all = Array.from(arguments)
+  la(is.unempty(all), 'empty list of results', arguments)
+  return all.slice(1).reduce((combined, results) => {
+    combined.tests = combined.tests.concat(results.tests)
+    combined.passes = combined.passes.concat(results.passes)
+    combined.failures = combined.failures.concat(results.failures)
+    combined.pending = combined.pending.concat(results.pending)
+    return combined
+  }, all[0])
+}
+
 function jsonToHuman (results) {
   la(is.object(results), 'missing test results', results)
 
@@ -39,4 +51,9 @@ function jsonToHuman (results) {
   return output
 }
 
-module.exports = jsonToHuman
+function jsonToHumanAll () {
+  const results = combineResults.apply(null, arguments)
+  return jsonToHuman(results)
+}
+
+module.exports = jsonToHumanAll

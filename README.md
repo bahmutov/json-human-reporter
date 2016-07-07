@@ -31,6 +31,18 @@ json-human-reporter results.json
 Because multiple reporters in Mocha seem a little bit too far in the future, see 
 [#2184](https://github.com/mochajs/mocha/pull/2184) and I wanted something now.
 
+## Module API
+
+You can just use the conversion from JSON object to human-friendly text
+
+```js
+const toHuman = require('json-human-reporter/json-to-human')
+const text = toHuman({
+  passed: [],
+  ...
+})
+```
+
 ### Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2016
