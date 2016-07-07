@@ -35,7 +35,7 @@ describe('json-human-reporter', () => {
       const filename3 = relative('./leading-text.json')
       const output = jhr(filename1, filename2, filename3)
       la(is.unemptyString(output), 'converted output', output)
-      // console.log(output)
+    // console.log(output)
     })
   })
 })
