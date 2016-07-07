@@ -26,6 +26,8 @@ Then transform `results.json` into human readable output
 json-human-reporter results.json
 ```
 
+You can even pass multiple filenames and get a combined output
+
 ## Why?
 
 Because multiple reporters in Mocha seem a little bit too far in the future, see 

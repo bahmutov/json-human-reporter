@@ -14,16 +14,22 @@ function toJsonIgnoreLeadingText (text) {
   return result
 }
 
-function toHumanFile (filename) {
+function loadExistingFile (filename) {
   la(fs.existsSync(filename), 'cannot find file', filename)
   const text = fs.readFileSync(filename, 'utf8')
   const json = toJsonIgnoreLeadingText(text)
-  return toHuman(json)
+  return json
+}
+
+function toHumanFile (filenames) {
+  const jsons = filenames.map(loadExistingFile)
+  return toHuman.apply(null, jsons)
 }
 
 function jsonHumanReporter (filename) {
-  if (is.unemptyString(filename)) {
-    return toHumanFile(filename)
+  const filenames = Array.from(arguments)
+  if (is.unempty(filenames)) {
+    return toHumanFile(filenames)
   }
 }
 
