@@ -26,7 +26,12 @@ Then transform `results.json` into human readable output
 json-human-reporter results.json
 ```
 
-You can even pass multiple filenames and get a combined output
+You can even pass multiple filenames and get a combined output. You can also
+pass `--stack true` option to print the error stack traces for every failed test.
+
+```
+json-human-reporter --stack true one.json two.json three.json
+```
 
 ## Why?
 
