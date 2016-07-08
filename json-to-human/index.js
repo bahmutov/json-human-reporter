@@ -17,8 +17,24 @@ function combineResults () {
   }, all[0])
 }
 
-function jsonToHuman (results) {
+// tell the difference between options and a test results objects
+function isTestResults (o) {
+  return is.object(o) &&
+    is.array(o.tests) &&
+    is.not.has('stack', o)
+}
+function isOptions (o) {
+  return is.object(o) &&
+    !isTestResults(o)
+}
+
+function jsonToHuman (results, options) {
   la(is.object(results), 'missing test results', results)
+  if (options) {
+    la(isOptions(options), 'invalid options', options)
+  } else {
+    options = {}
+  }
 
   la(is.array(results.tests), 'missing all tests in', results)
   la(is.array(results.passes), 'missing passed tests in', results)
@@ -37,9 +53,10 @@ function jsonToHuman (results) {
 
   results.failures.forEach((test) => {
     output += chalk.red(`✗ ${test.fullTitle}\n`)
-    output += chalk.red(`  ${test.err.message}
-      ${test.err.stack}
-    `)
+    output += chalk.red(`  ${test.err.message}\n`)
+    if (options.stack) {
+      output += chalk.yellow(`  ${test.err.stack}\n`)
+    }
   })
 
   const passedString = chalk.green(`${results.passes.length} passed`)
@@ -52,8 +69,11 @@ function jsonToHuman (results) {
 }
 
 function jsonToHumanAll () {
-  const results = combineResults.apply(null, arguments)
-  return jsonToHuman(results)
+  const args = Array.from(arguments)
+  const individualTestResults = args.filter(isTestResults)
+  const options = args.filter(isOptions)[0]
+  const combinedResults = combineResults.apply(null, individualTestResults)
+  return jsonToHuman(combinedResults, options)
 }
 
 module.exports = jsonToHumanAll

@@ -45,6 +45,37 @@ const text = toHuman({
 })
 ```
 
+You can pass multiple test results, they will be combined into one
+
+```js
+const toHuman = require('json-human-reporter/json-to-human')
+const results1 = {
+  passed: [],
+  ...
+}
+const results2 = {
+  passed: [],
+  ...
+}
+const text = toHuman(results1, results2, ...)
+```
+
+You can pass options object among the test results. The only option supported
+is "stack" to enable printing error stack in addition to the error message.
+
+```js
+const toHuman = require('json-human-reporter/json-to-human')
+const results1 = {
+  passed: [],
+  ...
+}
+const results2 = {
+  passed: [],
+  ...
+}
+const text = toHuman(results1, results2, {stack: true})
+```
+
 ### Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2016
