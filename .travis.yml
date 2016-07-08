@@ -11,7 +11,10 @@ before_script:
   - npm prune
 script:
   - npm test
+  - echo printing failed test results without stack
   - node bin/json-to-human.js test/fail.json
+  - echo printing several test results with stack
+  - node bin/json-to-human.js --stack true test/fail.json test/example.json
 after_success:
   - npm run semantic-release
 branches:
